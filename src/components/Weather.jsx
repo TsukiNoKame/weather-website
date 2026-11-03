@@ -1,28 +1,36 @@
 import { useEffect, useRef, useState } from "react";
+import clear_icon from "../assets/clear.png";
+import clouds_icon from "../assets/clouds.png";
+import drizzle_icon from "../assets/drizzle.png";
+import rain_icon from "../assets/rain.png";
+import snow_icon from "../assets/snow.png";
+import humidity_icon from "../assets/humidity.png";
+import wind_icon from "../assets/wind.png";
+import search_icon from "../assets/search.png";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(false);
   const inputRef = useRef();
 
   const allIcons = {
-    "01d": "/clear.png",
-    "01n": "/clear.png",
+    "01d": clear_icon,
+    "01n": clear_icon,
 
-    "02d": "/clouds.png",
-    "02n": "/clouds.png",
-    "03d": "/clouds.png",
-    "03n": "/clouds.png",
+    "02d": clouds_icon,
+    "02n": clouds_icon,
+    "03d": clouds_icon,
+    "03n": clouds_icon,
 
-    "04d": "/drizzle.png",
-    "04n": "/drizzle.png",
+    "04d": drizzle_icon,
+    "04n": drizzle_icon,
 
-    "09d": "/rain.png",
-    "09n": "/rain.png",
-    "10d": "/rain.png",
-    "10n": "/rain.png",
+    "09d": rain_icon,
+    "09n": rain_icon,
+    "10d": rain_icon,
+    "10n": rain_icon,
 
-    "13d": "/snow.png",
-    "13n": "/snow.png",
+    "13n": snow_icon,
+    "13d": snow_icon,
   };
 
   const search = async (city) => {
@@ -65,7 +73,7 @@ const Weather = () => {
           spellCheck="false"
         />
         <button onClick={() => search(inputRef.current.value)}>
-          <img src="/search.png" alt="search_icon" />
+          <img src={search_icon} alt="search_icon" />
         </button>
       </div>
 
@@ -80,7 +88,7 @@ const Weather = () => {
 
         <div className="details">
           <div className="col">
-            <img src="/humidity.png" alt="humidity_icon" />
+            <img src={humidity_icon} alt="humidity_icon" />
 
             <div>
               <p className="humidity">{weatherData.humidity}%</p>
@@ -89,7 +97,7 @@ const Weather = () => {
           </div>
 
           <div className="col">
-            <img src="/wind.png" alt="humidity_icon" />
+            <img src={wind_icon} alt="humidity_icon" />
 
             <div>
               <p className="wind">{weatherData.windSpeed} km/h</p>
